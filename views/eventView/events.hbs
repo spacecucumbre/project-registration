@@ -1,0 +1,52 @@
+<div class="container">
+    <form action="/events" method="POST">
+        <div class="form-group">
+            <label for="name">Imie i nazwisko</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="event">Wydarzenie</label>
+            <select class="form-control" id="event" name="event" required>
+                <option value="" selected>---</option>
+                <option>Kurs Full Stack Developer</option>
+                <option>Kurs Front End Developer</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="city">Miasto</label>
+            <select class="form-control" id="city" name="city" required>
+                <option value="" selected>---</option>
+                <option>Online</option>
+                <option>Warszawa</option>
+                <option>Kraków</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Zapisz na szkolenie</button>
+    </form>
+</div>
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Imie i nazwisko</th>
+                <th scope="col">Wydarzenie</th>
+                <th scope="col">Miasto</th>
+                <th scope="col">Akcje</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each events}}
+            <tr>
+                <th scope="row">{{@index}}</th>
+                <td>{{name}}</td>
+                <td>{{event}}</td>
+                <td>{{city}}</td>
+                <td><a href="/events/delete/{{_id}}" class="btn btn-danger">Delete</a></td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
