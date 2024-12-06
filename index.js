@@ -10,9 +10,9 @@ const eventController = require('./app/controllers/eventController');
 app.engine('hbs', hbs.engine({ extname: '.hbs' }));
 app.set('view engine', 'hbs');
 
-app.use(express.static('public'));
-
 app.use(express.urlencoded({ extended: true }));
+
+app.use(express.static('public'));
 
 app.get('/events', eventController.index);
 app.post('/events', eventController.create);
